@@ -51,3 +51,4 @@ function ufo_filter() {
 };
 
 button.on("click", ufo_filter);
+form.on("submit", ufo_filter);
