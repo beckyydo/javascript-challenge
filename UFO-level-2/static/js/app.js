@@ -10,16 +10,33 @@ function ufo_filter() {
     d3.event.preventDefault();
 
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var input_date = d3.select("#datetime");
+    var input_city = d3.select("#city");
+    var input_state = d3.select("#state");
+    var input_country = d3.select("#country");
+    var input_shape = d3.select("#shape");
 
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    var date_value = input_date.property("value");
+    var city_value = input_city.property("value");
+    var state_value = input_state.property("value");
+    var country_value = input_country.property("value");
+    var shape_value = input_shape.property("value");
+
 
     // View input on console
-    console.log(inputValue);
+    console.log(date_value);
+    console.log(city_value);
+    console.log(state_value);
+    console.log(country_value);
+    console.log(shape_value);
 
     // Filter data by date
-    var filter_data = tableData.filter(sighting => sighting.datetime === inputValue);
+    var filter_data = tableData.filter(sighting => (sighting.datetime == date_value && 
+        sighting.city == city_value && 
+        sighting.state == state_value &&
+        sighting.country == country_value &&
+        sighting.shape == shape_value));
 
     console.log(filter_data);
     console.log(filter_data.length);
