@@ -3,6 +3,7 @@ var tableData = data;
 
 // Select button and form
 var button = d3.select("#filter-btn");
+var form = d3.select("form");
 
 function ufo_filter() {
 
