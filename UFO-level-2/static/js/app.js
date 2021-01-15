@@ -31,7 +31,7 @@ function ufo_filter() {
     console.log(country_value);
     console.log(shape_value);
 
-    // Filter data by date
+    // Filter data by multiple criteria
     var filter_data = tableData.filter(sighting => (sighting.datetime == date_value && 
         sighting.city == city_value && 
         sighting.state == state_value &&
@@ -47,7 +47,7 @@ function ufo_filter() {
     // Remove any old table rows
     body.html("");
 
-    var no_sighting = `No Sightings on ${inputValue}. Try a different date. :)`
+    var no_sighting = `No Sightings with those criteria. Try again :)`
 
     if (filter_data.length === 0) {
         body.append("tr");
