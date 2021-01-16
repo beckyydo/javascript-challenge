@@ -23,7 +23,7 @@ function ufo_filter() {
     var state_value = input_state.property("value");
     var country_value = input_country.property("value");
     var shape_value = input_shape.property("value");
-
+    var filter_list = [date_value, city_value, state_value, country_value, shape_value];
 
     // View input on console
     console.log(date_value);
@@ -33,12 +33,22 @@ function ufo_filter() {
     console.log(shape_value);
 
     // Filter data by multiple criteria
-    var filter_data = tableData.filter(sighting => (sighting.datetime == date_value && 
-        sighting.city == city_value && 
-        sighting.state == state_value &&
-        sighting.country == country_value &&
-        sighting.shape == shape_value));
-
+    if (date_value != ""){
+        var filter_data = tableData.filter(sighting => sighting.datetime == date_value);
+    }
+    if (city_value != ""){
+        var filter_data = filter_data.filter(sighting => sighting.city == city_value);
+    }
+    if (state_value != ""){
+        var filter_data = filter_data.filter(sighting => sighting.state == state_value);
+    }
+    if (country_value != ""){
+        var filter_data = filter_data.filter(sighting => sighting.country == country_value);
+    }
+    if (shape_value != ""){
+        var filter_data = filter_data.filter(sighting => sighting.shape == shape_value);
+    }
+    
     console.log(filter_data);
     console.log(filter_data.length);
 
